@@ -1,0 +1,39 @@
+# Virtual environment
+venv/
+.env
+
+# Temp files
+temp/
+output/audio/
+output/scripts/
+output/subtitles/
+output/thumbnails/
+output/videos/
+assets/backgrounds/
+assets/images/
+assets/sounds/
+output/captions/
+templates/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+
+*$py.class
+.py
+# VS Code settings (isteğe bağlı)
+.vscode/
+
+# macOS sistem dosyaları (isteğe bağlı ama önerilir)
+.DS_Store
+
+# Logs (eğer ileride eklenirse)
+*.log
+
+
+credentials.json
+
+scripts/youtube_scripts/token.json
+
+
+token.pickle

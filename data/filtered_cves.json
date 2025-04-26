@@ -1,0 +1,252 @@
+[
+  {
+    "id": "CVE-2001-0609",
+    "score": 9.8,
+    "description": "Format string vulnerability in Infodrom cfingerd 1.4.3 and earlier allows a remote attacker to gain additional privileges via a malformed ident reply that is passed to the syslog function.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-0609",
+    "date_added": "2025-04-23 07:24:12.424842",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-193",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-1339",
+    "score": 9.8,
+    "description": "Beck IPC GmbH IPC@CHIP telnet service does not delay or disconnect users from the service when bad passwords are entered, which makes it easier for remote attackers to conduct brute force password guessing attacks.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-1339",
+    "date_added": "2025-04-23 07:23:30.410003",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "brute_force"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-307",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-0248",
+    "score": 9.8,
+    "description": "Buffer overflow in FTP server in HPUX 11 allows remote attackers to execute arbitrary commands by creating a long pathname and calling the STAT command, which uses glob to generate long strings.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-0248",
+    "date_added": "2025-04-23 07:23:39.822993",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "buffer_overflow"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-131",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-0249",
+    "score": 9.8,
+    "description": "Heap overflow in FTP daemon in Solaris 8 allows remote attackers to execute arbitrary commands by creating a long pathname and calling the LIST command, which uses glob to generate long strings.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-0249",
+    "date_added": "2025-04-23 07:23:49.076682",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "heap_overflow"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-131",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-0395",
+    "score": 9.8,
+    "description": "Lightwave ConsoleServer 3200 does not disconnect users after unsuccessful login attempts, which could allow remote attackers to conduct brute force password guessing.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-0395",
+    "date_added": "2025-04-23 07:23:55.785432",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "brute_force"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-307",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-1291",
+    "score": 9.8,
+    "description": "The telnet server for 3Com hardware such as PS40 SuperStack II does not delay or disconnect remote attackers who provide an incorrect username or password, which makes it easier to break into the server via brute force password guessing.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-1291",
+    "date_added": "2025-04-23 07:24:03.414172",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "brute_force"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-307",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-1155",
+    "score": 9.8,
+    "description": "TCP Wrappers (tcp_wrappers) in FreeBSD 4.1.1 through 4.3 with the PARANOID ACL option enabled does not properly check the result of a reverse DNS lookup, which could allow remote attackers to bypass intended access restrictions via DNS spoofing.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-1155",
+    "date_added": "2025-04-23 07:24:22.228818",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "dns_spoofing"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-863",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-0967",
+    "score": 9.8,
+    "description": "Knox Arkeia server 4.2, and possibly other versions, uses a constant salt when encrypting passwords using the crypt() function, which makes it easier for an attacker to conduct brute force password guessing.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-0967",
+    "date_added": "2025-04-23 07:24:32.718558",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "brute_force"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-916",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-1125",
+    "score": 9.8,
+    "description": "Symantec LiveUpdate before 1.6 does not use cryptography to ensure the integrity of download files, which allows remote attackers to execute arbitrary code via DNS spoofing of the update.symantec.com site.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-1125",
+    "date_added": "2025-04-23 07:24:39.963892",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "rce",
+      "dns_spoofing"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-494",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-0766",
+    "score": 9.8,
+    "description": "Apache on MacOS X Client 10.0.3 with the HFS+ file system allows remote attackers to bypass access restrictions via a URL that contains some characters whose case is not matched by Apache's filters.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-0766",
+    "date_added": "2025-04-23 07:24:47.133510",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-178",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-1481",
+    "score": 9.8,
+    "description": "Xitami 2.4 through 2.5 b4 stores the Administrator password in plaintext in the default.aut file, whose default permissions are world-readable, which allows remote attackers to gain privileges.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-1481",
+    "date_added": "2025-04-23 07:24:57.407934",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-312",
+    "used": true
+  },
+  {
+    "id": "CVE-2001-1496",
+    "score": 9.8,
+    "description": "Off-by-one buffer overflow in Basic Authentication in Acme Labs thttpd 1.95 through 2.20 allows remote attackers to cause a denial of service and possibly execute arbitrary code.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2001-1496",
+    "date_added": "2025-04-23 07:25:05.540663",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "buffer_overflow",
+      "rce"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-193",
+    "used": true
+  },
+  {
+    "id": "CVE-2002-0059",
+    "score": 9.8,
+    "description": "The decompression algorithm in zlib 1.1.3 and earlier, as used in many different utilities and packages, causes inflateEnd to release certain memory more than once (a \"double free\"), which may allow local and remote attackers to execute arbitrary code via a block of malformed compression data.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2002-0059",
+    "date_added": "2025-04-23 07:25:11.193021",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "rce",
+      "double_free"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-415",
+    "used": true
+  },
+  {
+    "id": "CVE-2002-0083",
+    "score": 9.8,
+    "description": "Off-by-one error in the channel code of OpenSSH 2.0 through 3.0.2 allows local users or remote malicious servers to gain privileges.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2002-0083",
+    "date_added": "2025-04-23 07:25:18.698725",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-193",
+    "used": true
+  },
+  {
+    "id": "CVE-2002-0639",
+    "score": 9.8,
+    "description": "Integer overflow in sshd in OpenSSH 2.9.9 through 3.3 allows remote attackers to execute arbitrary code during challenge response authentication (ChallengeResponseAuthentication) when OpenSSH is using SKEY or BSD_AUTH authentication.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2002-0639",
+    "date_added": "2025-04-23 07:25:30.265156",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "rce"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-190",
+    "used": true
+  },
+  {
+    "id": "CVE-2002-0671",
+    "score": 9.8,
+    "description": "Pingtel xpressa SIP-based voice-over-IP phone 1.2.5 through 1.2.7.4 downloads phone applications from a web site but can not verify the integrity of the applications, which could allow remote attackers to install Trojan horse applications via DNS spoofing.",
+    "source": "https://nvd.nist.gov/vuln/detail/CVE-2002-0671",
+    "date_added": "2025-04-23 07:25:38.413541",
+    "attack_vector": "NETWORK",
+    "user_interaction": "NONE",
+    "privileges_required": "NONE",
+    "tags": [
+      "dns_spoofing"
+    ],
+    "cwe_id": "nvd@nist.gov",
+    "cwe_name": "CWE-494"
+  }
+]
