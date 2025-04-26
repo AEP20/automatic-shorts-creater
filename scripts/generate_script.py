@@ -5,8 +5,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-# 🌐 DİL AYARI
-LANGUAGE = "en"  # "en" = English, "tr" = Türkçe
+LANGUAGE = "en"  
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -61,7 +60,7 @@ CVE Bilgileri:
 
 Çıktı: SADECE KONUŞMA METNİNİ OLUŞTUR. Başlık, etiket, açıklama vs. ekleme. Çünkü direkt seslendirme yapılacak.
 """
-    else:  # default English
+    else: 
         return f"""
 You are an expert YouTube Shorts scriptwriter crafting punchy, high-retention cybersecurity explainers.
 

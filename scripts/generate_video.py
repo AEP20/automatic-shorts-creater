@@ -20,16 +20,16 @@ SPEED_FACTOR = 0.70
 STYLE = (
     "FontName=Arial,"
     "FontSize=12,"
-    "PrimaryColour=&HFFFFFF&,"     
-    "OutlineColour=&H000000&,"     
-    "BorderStyle=1,"              
-    "Outline=1,"                 
-    "Shadow=1,"                    
-    "Bold=1,"                   
-    "Alignment=2,"                 
-    "MarginL=40,"                  
-    "MarginR=40,"                  
-    "MarginV=50,"                
+    "PrimaryColour=&HFFFFFF&,"      # Beyaz yazı
+    "OutlineColour=&H000000&,"       # Siyah kenar çizgisi
+    "BorderStyle=1,"                 # Kenar çizgili stil
+    "Outline=1,"                     # Kenar kalınlığı
+    "Shadow=1,"                      # Gölge
+    "Bold=1,"                        # Kalın yazı
+    "Alignment=2,"                   # Ortalanmış yazı
+    "MarginL=40,"                    # Soldan boşluk
+    "MarginR=40,"                    # Sağdan boşluk
+    "MarginV=50,"                    # Alttan boşluk
 )
 
 LOG_LEVEL = os.getenv("VIDEO_LOG_LEVEL", "INFO").upper()

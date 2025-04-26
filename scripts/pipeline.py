@@ -39,16 +39,15 @@ def main():
     generate_video(context)
     print(f"🎥 Video oluşturuldu: {context['video_path']}")
 
-    generate_thumbnail(context)
-    print(f"🖼️ Thumbnail oluşturuldu: {context['thumbnail_path']}")
+    # 5. Thumbnail oluştur
+    # generate_thumbnail(context)
+    # print(f"🖼️ Thumbnail oluşturuldu: {context['thumbnail_path']}")
 
     generate_captions(cve, context)
     print(f"📝 Altyazı dosyası oluşturuldu: {context['caption_path']}")
 
     mark_cve_used(cves, cve_id)
     print(f"✅ CVE işaretlendi: {cve_id}")
-
-    upload_video(context, cve_id)
 
     print("✅ Pipeline başarıyla tamamlandı.")
 

@@ -39,7 +39,7 @@ logger.debug("OpenAI anahtarı yüklendi, ilk 4 hane: %s****",
 
 
 # ---------- SABİT HIZ ORANI ----------
-SPEED_UP_RATIO = 1.10  # ⚡ 1.10 = %10 hızlandırma, 1.00 = normal hız
+SPEED_UP_RATIO = 1.10 
 
 def generate_audio(context: dict):
     script_path   = context["script_path"]

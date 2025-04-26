@@ -60,7 +60,7 @@ def generate_srt(script_path: str, srt_path: str, duration: float):
             start = seconds_to_timestamp(time_cursor)
             end = seconds_to_timestamp(time_cursor + chunk_duration)
 
-            colored_sentence = highlight_keywords(sentence.strip()) 
+            colored_sentence = highlight_keywords(sentence.strip()) # Anahtar kelimeleri renklendir
             f.write(f"{i + 1}\n{start} --> {end}\n{colored_sentence}\n\n")
 
             time_cursor += chunk_duration

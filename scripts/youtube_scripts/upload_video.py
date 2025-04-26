@@ -1,6 +1,8 @@
+# scripts/youtube_scripts/upload_video.py
+
 import os
 import logging
-import ffmpeg  
+import ffmpeg  # 📦 Video süresini kontrol etmek için
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from youtube_scripts.youtube_authenticate import authenticate_youtube
@@ -42,6 +44,7 @@ def upload_video(context, _CVE_ID):
     youtube_logger.debug(f"📄 Caption dosya yolu: {caption_file}")
     youtube_logger.debug(f"🖼️ Thumbnail dosya yolu: {thumbnail_file}")
 
+    # 📏 Video süresi kontrolü
     duration = get_video_duration(video_file)
     if duration is None:
         youtube_logger.error("❌ Video süresi alınamadı, işlem iptal.")
