@@ -1,8 +1,6 @@
-# scripts/youtube_scripts/upload_video.py
-
 import os
 import logging
-import ffmpeg  # 📦 Video süresini kontrol etmek için
+import ffmpeg  
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from youtube_scripts.youtube_authenticate import authenticate_youtube
@@ -44,7 +42,6 @@ def upload_video(context, _CVE_ID):
     youtube_logger.debug(f"📄 Caption dosya yolu: {caption_file}")
     youtube_logger.debug(f"🖼️ Thumbnail dosya yolu: {thumbnail_file}")
 
-    # 📏 Video süresi kontrolü
     duration = get_video_duration(video_file)
     if duration is None:
         youtube_logger.error("❌ Video süresi alınamadı, işlem iptal.")
@@ -54,7 +51,6 @@ def upload_video(context, _CVE_ID):
         return
     youtube_logger.info(f"⏱️ Video süresi: {duration:.2f} saniye (Shorts için uygun)")
 
-    # 📄 Caption oku
     try:
         with open(caption_file, "r", encoding="utf-8") as f:
             caption_text = f.read().strip()
@@ -67,14 +63,12 @@ def upload_video(context, _CVE_ID):
     title = lines[0] if lines else f"Cybersecurity Short - {CVE_ID}"
     description = "\n".join(lines[1:]) if len(lines) > 1 else "Auto-generated cybersecurity shorts."
 
-    # ✨ Description içine #shorts ekle (eğer yoksa)
     if "#shorts" not in description.lower():
         description += "\n\n#shorts"
 
     youtube_logger.info(f"🔢 Title: {title}")
     youtube_logger.info(f"📄 Description: {description[:50]}...")
 
-    # 📤 Video upload
     try:
         media = MediaFileUpload(video_file, resumable=True, mimetype="video/*")
         request = youtube.videos().insert(
@@ -84,7 +78,7 @@ def upload_video(context, _CVE_ID):
                     "title": title,
                     "description": description,
                     "tags": context.get("tags", []),
-                    "categoryId": "28"  # Science & Technology
+                    "categoryId": "28" 
                 },
                 "status": {
                     "privacyStatus": "public",
@@ -102,7 +96,6 @@ def upload_video(context, _CVE_ID):
         youtube_logger.error(f"❌ Video yükleme sırasında hata oluştu: {e}")
         return
 
-    # 🖼️ Thumbnail yükle
     if thumbnail_file and os.path.exists(thumbnail_file):
         try:
             youtube_logger.info("🖼️ Thumbnail yükleniyor...")
@@ -116,7 +109,6 @@ def upload_video(context, _CVE_ID):
     else:
         youtube_logger.warning("⚠️ Thumbnail dosyası bulunamadı, yükleme atlandı.")
 
-# 🦎 Bağımsız test
 if __name__ == "__main__":
     CVE_ID = "CVE-2001-0766"
     context = {

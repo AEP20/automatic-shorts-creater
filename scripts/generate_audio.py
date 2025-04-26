@@ -19,11 +19,11 @@ def tts_segment(text: str, voice: str) -> bytes:
     logger.debug("TTS başlatılıyor | voice=%s | text='%s…'", voice, text[:40])
     resp = openai.audio.speech.create(model="tts-1", voice=voice, input=text)
     logger.debug("TTS tamamlandı | %d bayt", len(resp.content))
-    return resp.content      # bytes
+    return resp.content      
 
 
 # ────────── LOG KURULUMU ──────────
-LOG_LEVEL = os.getenv("TTS_LOG_LEVEL", "INFO").upper()     # örn: DEBUG
+LOG_LEVEL = os.getenv("TTS_LOG_LEVEL", "INFO").upper()   
 logging.basicConfig(
     format="%(asctime)s | %(levelname)-8s | %(message)s",
     level=getattr(logging, LOG_LEVEL),
@@ -53,7 +53,6 @@ def generate_audio(context: dict):
     sentences = split_sentences(script)
     logger.info("Cümle sayısı: %d", len(sentences))
 
-    # 🎲 Bu videoda kullanılacak sesi bir kere seç
     selected_voice = random.choice(TTS_VOICES)
     logger.info("🎙️ Seçilen ses: %s", selected_voice)
 
@@ -61,12 +60,11 @@ def generate_audio(context: dict):
     tmpdir = tempfile.mkdtemp(prefix="tts_seg_")
     logger.debug("Geçici klasör: %s", tmpdir)
 
-    # --- her cümle için TTS oluştur ---
     for idx, sent in enumerate(sentences, 1):
         seg_file = os.path.join(tmpdir, f"seg{idx:02}.mp3")
         logger.debug("Segment %02d oluşturuluyor → %s", idx, seg_file)
         with open(seg_file, "wb") as fp:
-            fp.write(tts_segment(sent, voice=selected_voice))   # 🔥 burada hep aynı ses
+            fp.write(tts_segment(sent, voice=selected_voice))  
         dur = float(ffmpeg.probe(seg_file)["format"]["duration"])
         logger.debug("Segment %02d süresi: %.3f s", idx, dur)
         seg_paths.append(seg_file); seg_durs.append(dur)

@@ -20,12 +20,10 @@ TOKEN_FILE = "scripts/youtube_scripts/token.json"
 def authenticate_youtube():
     creds = None
 
-    # 1. Daha önce kayıtlı token var mı?
     if os.path.exists(TOKEN_FILE):
         logger.info("📄 Mevcut token bulundu, yükleniyor...")
         creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
 
-    # 2. Token yoksa veya süresi dolmuşsa
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             logger.info("🔄 Token süresi dolmuş, yenileniyor...")
@@ -35,7 +33,6 @@ def authenticate_youtube():
             flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
             creds = flow.run_local_server(port=0)
 
-        # 3. Tokenı kaydet
         os.makedirs(os.path.dirname(TOKEN_FILE), exist_ok=True)
         with open(TOKEN_FILE, "w") as token:
             token.write(creds.to_json())
@@ -44,6 +41,5 @@ def authenticate_youtube():
     logger.info("🔗 YouTube API bağlantısı başarılı!")
     return creds
 
-# Bağımsız test
 if __name__ == "__main__":
     authenticate_youtube()

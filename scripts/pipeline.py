@@ -30,33 +30,24 @@ def main():
     context = create_context(cve)
     print(f"📜 Seçilen CVE: {cve_id}")
 
-    # 2. Script oluştur
     generate_script(cve, context)
     print(f"📝 Script oluşturuldu: {context['script_path']}")
 
-    # 3. Ses ve altyazı üret
     generate_audio(context)
     print(f"🔊 Ses dosyası oluşturuldu: {context['audio_path']}")
 
-    # 4. Video oluştur
     generate_video(context)
     print(f"🎥 Video oluşturuldu: {context['video_path']}")
 
-    # 5. Thumbnail oluştur
     generate_thumbnail(context)
     print(f"🖼️ Thumbnail oluşturuldu: {context['thumbnail_path']}")
 
-    # 6. Caption oluştur
     generate_captions(cve, context)
     print(f"📝 Altyazı dosyası oluşturuldu: {context['caption_path']}")
 
-    # 6. CVE işaretle
     mark_cve_used(cves, cve_id)
     print(f"✅ CVE işaretlendi: {cve_id}")
 
-    # 7. Check State
-
-    # 8. Video yükle
     upload_video(context, cve_id)
 
     print("✅ Pipeline başarıyla tamamlandı.")

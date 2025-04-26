@@ -4,7 +4,6 @@ import logging
 from openai import OpenAI
 from dotenv import load_dotenv
 
-# --- Config
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -57,7 +56,6 @@ Instructions:
     
     logger.info("✅ Captions successfully generated: %s", context["caption_path"])
 
-# 🧪 For standalone testing
 if __name__ == "__main__":
     CVE_ID = "CVE-2001-0766"
     fake_cve = {

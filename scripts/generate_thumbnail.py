@@ -1,5 +1,3 @@
-# scripts/generate_thumbnail.py
-
 # -*- coding: utf-8 -*-
 import os
 import logging
@@ -7,7 +5,7 @@ import base64
 from dotenv import load_dotenv
 from openai import OpenAI
 from utils.utils import resize_image_to_16_9
-from PIL import Image  # 👈 Ekledik
+from PIL import Image  
 import io
 import random
 
@@ -57,7 +55,6 @@ def generate_thumbnail(context: dict):
 
         resize_image_to_16_9(output_path, output_path.replace("_thumb", "_thumb_720"))
 
-        # 🔥 Boyutu optimize et
         optimize_thumbnail_size(output_path.replace("_thumb", "_thumb_720"))
 
     except Exception as e:
@@ -95,7 +92,7 @@ def optimize_thumbnail_size(image_path: str):
                 logger.info(f"✅ Sıkıştırma başarılı: {new_size / 1024:.2f} KB ile Quality={quality}")
                 return
 
-            quality -= 5  # her seferinde %5 azaltıyoruz
+            quality -= 5 
 
         logger.warning("⚠️ Maksimum sıkıştırmaya rağmen 2MB altına inilemedi.")
 

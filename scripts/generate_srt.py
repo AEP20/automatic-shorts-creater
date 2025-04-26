@@ -4,7 +4,7 @@ from utils.utils import highlight_keywords
 
 MIN_WORDS_PER_BLOCK = 5
 MAX_WORDS_PER_BLOCK = 12
-MIN_DURATION = 1.5  # saniye
+MIN_DURATION = 1.5  
 
 def seconds_to_timestamp(seconds: float) -> str:
     h = int(seconds // 3600)
@@ -26,7 +26,6 @@ def split_sentences(text: str):
         if words:
             sentences.append(' '.join(words))
 
-    # Fazla kısa cümleleri birleştir
     optimized = []
     i = 0
     while i < len(sentences):
@@ -61,7 +60,7 @@ def generate_srt(script_path: str, srt_path: str, duration: float):
             start = seconds_to_timestamp(time_cursor)
             end = seconds_to_timestamp(time_cursor + chunk_duration)
 
-            colored_sentence = highlight_keywords(sentence.strip()) # Anahtar kelimeleri renklendir
+            colored_sentence = highlight_keywords(sentence.strip()) 
             f.write(f"{i + 1}\n{start} --> {end}\n{colored_sentence}\n\n")
 
             time_cursor += chunk_duration
@@ -74,7 +73,7 @@ if __name__ == "__main__":
     CVE_ID = "CVE-2000-0944"
     SCRIPT_PATH = f"output/scripts/{CVE_ID}.txt"
     SRT_PATH = f"output/subtitles/{CVE_ID}.srt"
-    DURATION = 60.0  # Ses süresi (saniye)
+    DURATION = 60.0 
 
     os.makedirs(os.path.dirname(SRT_PATH), exist_ok=True)
     generate_srt(SCRIPT_PATH, SRT_PATH, DURATION)

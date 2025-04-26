@@ -125,7 +125,6 @@ if __name__ == "__main__":
 
     generate_script(cve, context)
 
-    # Kullanıldı olarak işaretleyelim (isteğe bağlı)
     cve["used"] = True
     with open("data/filtered_cves.json", "w") as f:
         json.dump(cves, f, indent=2)

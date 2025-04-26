@@ -1,8 +1,6 @@
-# Virtual environment
 venv/
 .env
 
-# Temp files
 temp/
 output/audio/
 output/scripts/
@@ -15,19 +13,15 @@ assets/sounds/
 output/captions/
 templates/
 
-# Byte-compiled / cache files
 __pycache__/
 *.py[cod]
 
 *$py.class
 .py
-# VS Code settings (isteğe bağlı)
 .vscode/
 
-# macOS sistem dosyaları (isteğe bağlı ama önerilir)
 .DS_Store
 
-# Logs (eğer ileride eklenirse)
 *.log
 
 

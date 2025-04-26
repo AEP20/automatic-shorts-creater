@@ -9,9 +9,8 @@ import random
 import logging
 import ffmpeg
 
-# ----------  AYARLAR  ----------
 TARGET_W, TARGET_H, TARGET_FPS = 1080, 1920, 30
-CROSSFADE = 0.5                     # sn
+CROSSFADE = 0.5                    
 BG_DIR     = "assets/backgrounds"
 TMP_DIR    = "temp"
 TMP_BG     = os.path.join(TMP_DIR, "temp_background.mp4")
@@ -21,16 +20,16 @@ SPEED_FACTOR = 0.70
 STYLE = (
     "FontName=Arial,"
     "FontSize=12,"
-    "PrimaryColour=&HFFFFFF&,"      # Beyaz yazı
-    "OutlineColour=&H000000&,"       # Siyah kenar çizgisi
-    "BorderStyle=1,"                 # Kenar çizgili stil
-    "Outline=1,"                     # Kenar kalınlığı
-    "Shadow=1,"                      # Gölge
-    "Bold=1,"                        # Kalın yazı
-    "Alignment=2,"                   # Ortalanmış yazı
-    "MarginL=40,"                    # Soldan boşluk
-    "MarginR=40,"                    # Sağdan boşluk
-    "MarginV=50,"                    # Alttan boşluk
+    "PrimaryColour=&HFFFFFF&,"     
+    "OutlineColour=&H000000&,"     
+    "BorderStyle=1,"              
+    "Outline=1,"                 
+    "Shadow=1,"                    
+    "Bold=1,"                   
+    "Alignment=2,"                 
+    "MarginL=40,"                  
+    "MarginR=40,"                  
+    "MarginV=50,"                
 )
 
 LOG_LEVEL = os.getenv("VIDEO_LOG_LEVEL", "INFO").upper()
@@ -39,7 +38,6 @@ logging.basicConfig(format="%(asctime)s | %(levelname)-8s | %(message)s",
 logger = logging.getLogger("video_pipeline")
 
 
-# ----------  YARDIMCI FONKSİYONLAR  ----------
 def _probe_duration(path: str) -> float:
     try:
         return float(ffmpeg.probe(path)["format"]["duration"])
@@ -56,14 +54,11 @@ def _prepare_clip(path: str, seg_dur: float, speed: float = 1.0):
 
     inp = ffmpeg.input(path, ss=0)
 
-    # Hız / yavaşlat
     if abs(speed - 1.0) > 1e-3:
         inp = inp.filter("setpts", f"PTS/{speed}")
-        real_dur *= (1 / speed)   # yavaşlatınca süre uzar, hızlandırınca kısalır
+        real_dur *= (1 / speed)  
 
-    # speed sonrası gereken ham süre
     raw_needed = seg_dur
-    # Eğer videonun süresi yetmiyorsa loop yap
     if real_dur < raw_needed - 0.1:
         loop_cnt = int(raw_needed // real_dur) + 1
         inp = inp.filter_multi_output(
@@ -71,13 +66,11 @@ def _prepare_clip(path: str, seg_dur: float, speed: float = 1.0):
         )[0]
         logger.debug(f"🔄 {path} döngüyle {loop_cnt}× uzatıldı")
 
-    # Kes, ölçekle, fps sabitle
     inp = (inp.trim(start=0, end=raw_needed)
-               .filter("setpts", "PTS-STARTPTS")    # trim sonrası timestamp sıfırla
+               .filter("setpts", "PTS-STARTPTS")   
                .filter("scale", TARGET_W, TARGET_H)
                .filter("fps", TARGET_FPS, round="up"))
 
-    # Renk uyumluluğu
     return inp.filter("format", "yuv420p")
 
 def _build_xfade_chain(clips, seg_dur):
@@ -86,7 +79,7 @@ def _build_xfade_chain(clips, seg_dur):
     offset = k*(seg_dur - CROSSFADE) formülüyle kurulur.
     """
     out = clips[0]
-    offset = seg_dur - CROSSFADE          # ilk geçiş başlangıcı
+    offset = seg_dur - CROSSFADE    
 
     for nxt in clips[1:]:
         out = ffmpeg.filter(
@@ -95,12 +88,11 @@ def _build_xfade_chain(clips, seg_dur):
             duration=CROSSFADE,
             offset=offset
         )
-        offset += seg_dur - CROSSFADE     # sonraki geçişin başlangıcı
+        offset += seg_dur - CROSSFADE   
 
     return out
 
 
-# ----------  ANA İŞLEVLER  ----------
 def create_combined_background(total_dur: float) -> None:
     os.makedirs(TMP_DIR, exist_ok=True)
 
@@ -167,7 +159,7 @@ def generate_video(ctx: dict) -> None:
         logger.warning(f"⚠️ Temp silinemedi: {e}")
 
 
-# ---------------  ÖRNEK ÇALIŞTIRMA ---------------
+# ---------------  test ---------------
 if __name__ == "__main__":
     example_cve = "CVE-2001-0766"
     generate_video({
